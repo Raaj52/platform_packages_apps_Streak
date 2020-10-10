@@ -16,31 +16,23 @@ import android.provider.Settings;
 import com.android.settings.R;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.streak.settings.preferences.CustomSeekBarPreference;
-import com.streak.settings.preferences.SystemSettingSwitchPreference;
-import com.streak.settings.preferences.SystemSettingListPreference;
-import com.android.settings.Utils;
-import android.util.Log;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-public class StatusBarSettings extends SettingsPreferenceFragment implements
+public class NotificationSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
-
-    private CustomSeekBarPreference mThreshold;
-    private SystemSettingSwitchPreference mNetMonitor;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.streak_settings_statusbar);
+        addPreferencesFromResource(R.xml.streak_settings_notification);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-		
+
         return false;
     }
 

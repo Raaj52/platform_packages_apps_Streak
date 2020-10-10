@@ -19,27 +19,170 @@ package com.streak.settings;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Surface;
-import android.preference.Preference;
+import androidx.preference.Preference;
+import com.google.android.material.card.MaterialCardView;
 import com.android.settings.R;
+import android.widget.GridLayout;
+import android.widget.GridView;
+import android.widget.Toast;
+import android.view.View;
+import android.util.Log;
 
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.ComponentName;
+
+import com.streak.settings.fragments.QuickSettings;
+import com.streak.settings.fragments.StatusBarSettings;
+import com.streak.settings.fragments.LockScreenSettings;
+import com.streak.settings.fragments.PowerMenuSettings;
+import com.streak.settings.fragments.GestureSettings;
+import com.streak.settings.fragments.NotificationSettings;
+import com.streak.settings.fragments.ButtonsSettings;
+import com.streak.settings.fragments.AboutSettings;
 import com.android.settings.SettingsPreferenceFragment;
+  
 
-public class StreakSettings extends SettingsPreferenceFragment {
+public class StreakSettings extends SettingsPreferenceFragment implements View.OnClickListener {
 
+    MaterialCardView mQuickSettingsCard;
+    MaterialCardView mStatusbarCard;
+    MaterialCardView mLockscreenCard;
+    MaterialCardView mPowerMenuCard;
+    MaterialCardView mGestureCard;
+    MaterialCardView mNotificationCard;
+    MaterialCardView mButtonCard;
+    MaterialCardView mAboutCard;
+    
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-
-        addPreferencesFromResource(R.xml.streak_settings);
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		
+        return inflater.inflate(R.layout.streak_settings, container, false);
     }
+      
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+		    getActivity().getActionBar().hide();
+
+        mQuickSettingsCard = (MaterialCardView) view.findViewById(R.id.quicksettings_card);
+        mQuickSettingsCard.setOnClickListener(this);
+
+        mStatusbarCard = (MaterialCardView) view.findViewById(R.id.statusbar_card);
+        mStatusbarCard.setOnClickListener(this);
+
+        mLockscreenCard = (MaterialCardView) view.findViewById(R.id.lockscreen_card);
+        mLockscreenCard.setOnClickListener(this);
+        
+        mPowerMenuCard = (MaterialCardView) view.findViewById(R.id.powermenu_card);
+        mPowerMenuCard.setOnClickListener(this);
+
+        mGestureCard = (MaterialCardView) view.findViewById(R.id.gesture_card);
+        mGestureCard.setOnClickListener(this);
+
+        mNotificationCard = (MaterialCardView) view.findViewById(R.id.notification_card);
+        mNotificationCard.setOnClickListener(this);
+
+        mButtonCard = (MaterialCardView) view.findViewById(R.id.button_card);
+        mButtonCard.setOnClickListener(this);
+
+        mAboutCard = (MaterialCardView) view.findViewById(R.id.about_card);
+        mAboutCard.setOnClickListener(this);
+        
+        }
 
     @Override
+    public void onClick(View view) {
+        int id = view.getId();
+            if (id == R.id.quicksettings_card)
+              {
+                QuickSettings quicksettingsfragment = new QuickSettings();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction.replace(this.getId(), quicksettingsfragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+               }
+            if (id == R.id.statusbar_card)
+              {
+                StatusBarSettings statusbarfragment = new StatusBarSettings();
+                FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
+                transaction1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction1.replace(this.getId(), statusbarfragment);
+                transaction1.addToBackStack(null);
+                transaction1.commit();
+              }
+            if (id == R.id.lockscreen_card)
+              {
+               LockScreenSettings lockscreenfragment = new LockScreenSettings();
+                FragmentTransaction transaction2 = getFragmentManager().beginTransaction();
+                transaction2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction2.replace(this.getId(), lockscreenfragment);
+                transaction2.addToBackStack(null);
+                transaction2.commit();
+               }
+            if (id == R.id.powermenu_card)
+              {
+                PowerMenuSettings powermenufragment = new PowerMenuSettings();
+                FragmentTransaction transaction3 = getFragmentManager().beginTransaction();
+                transaction3.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction3.replace(this.getId(), powermenufragment);
+                transaction3.addToBackStack(null);
+                transaction3.commit();
+               }
+            if (id == R.id.gesture_card)
+              {
+                GestureSettings gesturefragment = new GestureSettings();
+                FragmentTransaction transaction4 = getFragmentManager().beginTransaction();
+                transaction4.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction4.replace(this.getId(), gesturefragment);
+                transaction4.addToBackStack(null);
+                transaction4.commit();
+              }
+            if (id == R.id.notification_card)
+              {
+                NotificationSettings notificationfragment = new NotificationSettings();
+                FragmentTransaction transaction5 = getFragmentManager().beginTransaction();
+                transaction5.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction5.replace(this.getId(), notificationfragment);
+                transaction5.addToBackStack(null);
+                transaction5.commit();
+               }
+            if (id == R.id.button_card)
+              {
+                ButtonsSettings buttonfragment = new ButtonsSettings();
+                FragmentTransaction transaction6 = getFragmentManager().beginTransaction();
+                transaction6.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction6.replace(this.getId(), buttonfragment);
+                transaction6.addToBackStack(null);
+                transaction6.commit();
+               }
+            if (id == R.id.about_card)
+              {
+                AboutSettings aboutsettingsfragment = new AboutSettings();
+                FragmentTransaction transaction7 = getFragmentManager().beginTransaction();
+                transaction7.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction7.replace(this.getId(), aboutsettingsfragment);
+                transaction7.addToBackStack(null);
+                transaction7.commit();
+               }
+        }
+    
+    
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.STREAK_SETTINGS;
     }

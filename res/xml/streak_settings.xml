@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2016 streak Project
-
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
           http://www.apache.org/licenses/LICENSE-2.0
-
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,56 +18,47 @@
         <Preference
             android:key="statusbar_category"
             android:title="@string/statusbar_title"
-            android:fragment="com.streak.settings.fragments.StatusBarSettings" 
-            android:icon="@drawable/ic_settings_statusbar"/>
-
+            android:fragment="com.streak.settings.fragments.StatusBarSettings" />
+        
         <!-- Quick Settings panel -->
         <Preference
             android:key="quicksettings_category"
             android:title="@string/quicksettings_title"
-            android:fragment="com.streak.settings.fragments.QuickSettings"
-            android:icon="@drawable/ic_settings_quicksettings"/>
+            android:fragment="com.streak.settings.fragments.QuickSettings"/>
 
         <!-- Buttons -->
         <Preference
             android:key="buttonsettings_category"
             android:title="@string/buttons_title"
-            android:fragment="com.streak.settings.fragments.ButtonSettings"
-            android:icon="@drawable/ic_settings_buttons"/>
+            android:fragment="com.streak.settings.fragments.ButtonSettings"/>
 
         <!-- Gestures -->
         <Preference
             android:key="gestures_category"
             android:title="@string/gestures_title" 
-            android:fragment="com.streak.settings.fragments.GestureSettings"
-            android:icon="@drawable/ic_settings_gesture"/>
+            android:fragment="com.streak.settings.fragments.GestureSettings"/>
 
         <!-- Lock Screen -->
         <Preference
             android:key="lockscreen_category"
             android:title="@string/lockscreen_title"
-            android:fragment="com.streak.settings.fragments.LockScreenSettings"
-            android:icon="@drawable/ic_settings_lockscreens"/>
-
+            android:fragment="com.streak.settings.fragments.LockScreenSettings"/>
+        
         <!-- Power Menu -->
         <Preference
             android:key="powermenu__category"
             android:title="@string/powermenu_title"
-            android:fragment="com.streak.settings.fragments.PowerMenuSettings"
-            android:icon="@drawable/ic_settings_powermenu"/>
+            android:fragment="com.streak.settings.fragments.PowerMenuSettings"/>
 
         <!-- Notifications -->
         <Preference
             android:key="notifications_category"
             android:title="@string/notifications_title"
-            android:fragment="com.streak.settings.fragments.NotificationSettings"
-            android:icon="@drawable/ic_settings_notification"/>
-
+            android:fragment="com.streak.settings.fragments.NotificationSettings"/>
+        
         <!-- About -->
         <Preference
             android:key="about_category"
             android:title="@string/about_title"
-            android:fragment="com.streak.settings.fragments.AboutSettings"
-            android:icon="@drawable/ic_settings_about"/>
-
+            android:fragment="com.streak.settings.fragments.AboutSettings"/>
 </PreferenceScreen>

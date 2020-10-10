@@ -1,5 +1,6 @@
 package com.streak.settings.fragments;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.content.Context;

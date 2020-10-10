@@ -12,7 +12,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App Title -->
-    <string name="streak_settings_title">StreakWeive</string>
+    <string name="streak_settings_title">Streak Settings</string>
 
     <!-- Categories -->
     <string name="about_title">About</string>
@@ -26,6 +26,7 @@
 
     <!-- General strings -->
     <string name="ok">OK</string>
+    <string name="search">Search</string>
     <string name="reset">Reset</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
